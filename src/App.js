@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useTransition, animated, config } from 'react-spring'
 import { TransitionMotion, spring } from 'react-motion';
 import './App.css';
+import Card from './components/Card';
 const leavingSpringConfig = { stiffness: 60, damping: 15 };
 
 function TransitionArray() {
@@ -31,7 +32,7 @@ function TransitionArray() {
   })
 
   const fragment = transition((style, item) => {
-    return <animated.div style={
+    return <animated.div className="animated-div" style={
       style
     }><h1>{item.text}</h1></animated.div>;
   });
@@ -102,7 +103,7 @@ function App() {
             <div className='title'>
                 <TransitionArray />
             </div>
-           
+            <Card/>
             </main>
           </div>
         
