@@ -9,7 +9,7 @@ import {
 } from 'react-spring'
 
 import data from '../data'
-import styles from './styles.css'
+import './styles.css'
 
 export default function Card() {
   const [open, set] = useState(false)
