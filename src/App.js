@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTransition, animated, config } from 'react-spring'
 import { TransitionMotion, spring } from 'react-motion';
+import Avatar from '@mui/material/Avatar';
 import './App.css';
 import Card from './components/Card';
 const leavingSpringConfig = { stiffness: 60, damping: 15 };
@@ -82,33 +83,38 @@ function App() {
   }];
 
   return (
-      <TransitionMotion willLeave={willLeave} styles={styles}>
-        {circles =>
-          <div
-            onMouseMove={handleMouseMove}
-            onTouchMove={handleTouchMove}
-            className="demo7">
-            {circles.map(({ key, style: { opacity, scale, x, y } }) =>
-              <div
-                key={key}
-                className="demo7-ball"
-                style={{
-                  opacity: opacity,
-                  scale: scale,
-                  transform: `translate3d(${x}px, ${y}px, 0) scale(${scale})`,
-                  WebkitTransform: `translate3d(${x}px, ${y}px, 0) scale(${scale})`,
-                }} />
-            )}
-           <main className="main">
-            <div className='title'>
-                <TransitionArray />
+    <TransitionMotion willLeave={willLeave} styles={styles}>
+      {circles =>
+        <div
+          onMouseMove={handleMouseMove}
+          onTouchMove={handleTouchMove}
+          className="demo7">
+          {circles.map(({ key, style: { opacity, scale, x, y } }) =>
+            <div
+              key={key}
+              className="demo7-ball"
+              style={{
+                opacity: opacity,
+                scale: scale,
+                transform: `translate3d(${x}px, ${y}px, 0) scale(${scale})`,
+                WebkitTransform: `translate3d(${x}px, ${y}px, 0) scale(${scale})`,
+              }} />
+          )}
+          <main className="main">
+            <div className='avatar'>
+              <Avatar
+                sx={{ width: 164, height: 164 }}
+              >KRM</Avatar>
             </div>
-            <Card/>
-            </main>
-          </div>
-        
-          }
-      </TransitionMotion>
+            <div className='title'>
+              <TransitionArray />
+            </div>
+            <Card />
+          </main>
+        </div>
+
+      }
+    </TransitionMotion>
   );
 }
 

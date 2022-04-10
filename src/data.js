@@ -72,17 +72,5 @@ export default [
       css: 'linear-gradient(135deg, #fff1eb 0%, #ace0f9 100%)',
       height: 400,
     },
-    {
-      name: 'Soft Grass',
-      description: ' #c1dfc4 → #deecdd',
-      css: 'linear-gradient(135deg, #c1dfc4 0%, #deecdd 100%)',
-      height: 400,
-    },
-    {
-      name: 'Japan Blush',
-      description: ' #ddd6f3 → #faaca8',
-      css: 'linear-gradient(135deg, #ddd6f3 0%, #faaca8 100%, #faaca8 100%)',
-      height: 200,
-    },
   ]
   
