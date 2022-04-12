@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { solid, regular, brands } from '@fortawesome/fontawesome-svg-core/import.macro'
 import {
   useTransition,
   useSpring,
@@ -49,8 +51,8 @@ export default function Card() {
         {transition((style, item) => (
           <animated.div
             className="item"
-            style={{ ...style, background: item.css }}
-          >
+            style={{ ...style}}
+          > 
               {item.name}
               </animated.div>
         ))}
