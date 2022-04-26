@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
 .wrapper {
     padding: 20px;
     width: 500px;
@@ -6,6 +7,9 @@
     align-items: center;
     justify-content: center;
     color: slategrey;
+    font-family: 'Kalam', cursive;
+    font-style: normal;
+    font-size: 18px;
   }
   
   .container {
@@ -28,4 +32,7 @@
     border-radius: 5px;
     will-change: transform, opacity;
   }
-  
+  img{
+    width: 100px;
+    height:105px
+  }

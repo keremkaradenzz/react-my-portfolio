@@ -18,10 +18,10 @@ export default function Card() {
   const { size, ...rest } = useSpring({
     ref: springApi,
     config: config.stiff,
-    from: { size: '20%', background: 'hotpink' },
+    from: { size: '20%', background: '#6a1b9a' },
     to: {
       size: open ? '100%' : '20%',
-      background: open ? 'white' : 'hotpink',
+      background: open ? 'white' : '#6a1b9a',
     },
   })
 
@@ -42,6 +42,7 @@ export default function Card() {
 
   return (
     <div className="wrapper">
+      
       <animated.div
         style={{ ...rest, width: size, height: size }}
         className="container"
@@ -52,6 +53,7 @@ export default function Card() {
             style={{ ...style}}
           > 
               {item.name}
+             <img src={item.icon} alt='kerem_karadeniz_icon'/> 
               </animated.div>
         ))}
       </animated.div>
