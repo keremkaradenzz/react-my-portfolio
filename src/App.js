@@ -1,10 +1,10 @@
-
 import React, { useState, useEffect } from 'react';
 import { useTransition, animated, config } from 'react-spring'
 import { TransitionMotion, spring } from 'react-motion';
 import Avatar from '@mui/material/Avatar';
 import './App.css';
-import Card from './components/Card';
+import Card from './components/Card/Card';
+import MyEditor from './components/Editor/Editor';
 const leavingSpringConfig = { stiffness: 60, damping: 15 };
 
 function TransitionArray() {
@@ -46,6 +46,8 @@ function TransitionArray() {
 }
 function App() {
   const [state, setState] = useState({ mouse: [], now: 't' + 0 });
+  
+
   const handleMouseMove = ({ pageX, pageY }) => {
     // Make sure the state is queued and not batched.
     setState(() => {
@@ -81,7 +83,7 @@ function App() {
       y: spring(mouseY),
     }
   }];
-
+  
   return (
     <TransitionMotion willLeave={willLeave} styles={styles}>
       {circles =>
@@ -110,6 +112,7 @@ function App() {
               <TransitionArray />
             </div>
             <Card />
+            <MyEditor />
           </main>
         </div>
 

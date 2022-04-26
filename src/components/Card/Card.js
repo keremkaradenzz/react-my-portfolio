@@ -1,6 +1,4 @@
 import React, { useState } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { solid, regular, brands } from '@fortawesome/fontawesome-svg-core/import.macro'
 import {
   useTransition,
   useSpring,
@@ -10,7 +8,7 @@ import {
   useSpringRef,
 } from 'react-spring'
 
-import data from '../data'
+import data from '../../data'
 import './styles.css'
 
 export default function Card() {
