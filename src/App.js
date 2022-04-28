@@ -106,7 +106,8 @@ function App() {
             <div className='avatar'>
               <Avatar
                 sx={{ width: 164, height: 164 }}
-              >KRM</Avatar>
+                src="https://media-exp1.licdn.com/dms/image/C4E03AQHuul0JZHTDyg/profile-displayphoto-shrink_800_800/0/1639949584813?e=1656547200&v=beta&t=jDMrt4BCEyyGKNptCbTRuDfrxyS60Twiep-gh3QXDfE"
+              />
             </div>
             <div className='title'>
               <TransitionArray />
