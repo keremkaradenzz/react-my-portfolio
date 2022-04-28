@@ -1,4 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
+
+
+.container{
+  margin-top: 100px;
+}
 .react-draggable, .cursor {
   cursor: move;
 }
@@ -24,14 +29,14 @@
 
 .box {
   background: #fff;
-  border: 1px solid #999;
   border-radius: 3px;
-  width: 180px;
-  height: 180px;
+  width: 68px;
+  height: 68px;
   margin: 10px;
   padding: 10px;
   color:black;
   font-family: 'Kalam', cursive;
+  position: relative;
   float: left;
 }
 .no-pointer-events {

@@ -1,5 +1,6 @@
 import React from 'react';
 import Draggable from 'react-draggable';
+import data from '../../data';
 import './styles.css'
 const Card = () => {
   const [state, setState] = React.useState({
@@ -24,22 +25,15 @@ const Card = () => {
   const dragHandlers = { onStart: onStart, onStop: onStop };
 
   return (
-    <div>
-      <p>Active DragHandlers: {state.activeDrags}</p>
+    <div className='container'>
+      <p>My Stacks</p>
       <div className="box" style={{ height: '500px', width: '500px', position: 'relative', overflow: 'auto', padding: '0' }}>
-        <div style={{ height: '1000px', width: '1000px', padding: '10px' }}>
-          <Draggable bounds="parent" {...dragHandlers}>
+        <div style={{ height: '1000px', width: '500px', padding: '10px' }}>
+          {data.map((item,index) => <Draggable defaultPosition={{x:((index + 1) * 5), y: (Math.random() * 300) + 1}}  key={index} bounds="parent" {...dragHandlers}>
             <div className="box">
-              I can only be moved within my offsetParent.<br /><br />
-              Both parent padding and child margin work properly.
+              <img src={item.icon} alt={item.name} draggable={false} />
             </div>
-          </Draggable>
-          <Draggable bounds="parent" {...dragHandlers}>
-            <div className="box">
-              I also can only be moved within my offsetParent.<br /><br />
-              Both parent padding and child margin work properly.
-            </div>
-          </Draggable>
+          </Draggable>)}
         </div>
       </div>
     </div>
