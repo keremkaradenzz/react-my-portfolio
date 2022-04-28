@@ -1,9 +1,9 @@
-import React from 'react';
+import React,{ useState } from 'react';
 import Draggable from 'react-draggable';
 import data from '../../data';
 import './styles.css'
 const Card = () => {
-  const [state, setState] = React.useState({
+  const [state, setState] = useState({
     activeDrags: 0,
     deltaPosition: {
       x: 0, y: 0
