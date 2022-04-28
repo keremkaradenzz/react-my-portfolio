@@ -12,6 +12,8 @@ function TransitionArray() {
     { id: 1, text: "Hi I'm Kerem Karadeniz " },
   ]);
 
+
+
   useEffect(() => {
     if (items.length === 0) {
       setTimeout(() => {
@@ -46,7 +48,7 @@ function TransitionArray() {
 }
 function App() {
   const [state, setState] = useState({ mouse: [], now: 't' + 0 });
-  
+
 
   const handleMouseMove = ({ pageX, pageY }) => {
     // Make sure the state is queued and not batched.
@@ -83,42 +85,49 @@ function App() {
       y: spring(mouseY),
     }
   }];
-  
-  return (
-    <TransitionMotion willLeave={willLeave} styles={styles}>
-      {circles =>
-        <div
-          onMouseMove={handleMouseMove}
-          onTouchMove={handleTouchMove}
-          className="demo7">
-          {circles.map(({ key, style: { opacity, scale, x, y } }) =>
-            <div
-              key={key}
-              className="demo7-ball"
-              style={{
-                opacity: opacity,
-                scale: scale,
-                transform: `translate3d(${x}px, ${y}px, 0) scale(${scale})`,
-                WebkitTransform: `translate3d(${x}px, ${y}px, 0) scale(${scale})`,
-              }} />
-          )}
-          <main className="main">
-            <div className='avatar'>
-              <Avatar
-                sx={{ width: 164, height: 164 }}
-                src="https://media-exp1.licdn.com/dms/image/C4E03AQHuul0JZHTDyg/profile-displayphoto-shrink_800_800/0/1639949584813?e=1656547200&v=beta&t=jDMrt4BCEyyGKNptCbTRuDfrxyS60Twiep-gh3QXDfE"
-              />
-            </div>
-            <div className='title'>
-              <TransitionArray />
-            </div>
-            <Card />
-            <MyEditor />
-          </main>
-        </div>
 
-      }
-    </TransitionMotion>
+  return (
+    <div class="app">
+      <TransitionMotion willLeave={willLeave} styles={styles}>
+        
+        {circles =>
+          <div
+            onMouseMove={handleMouseMove}
+            onTouchMove={handleTouchMove}
+            className="demo7">
+            {circles.map(({ key, style: { opacity, scale, x, y } }) =>
+              <div
+                key={key}
+                className="demo7-ball"
+                style={{
+                  opacity: opacity,
+                  scale: scale,
+                  transform: `translate3d(${x}px, ${y}px, 0) scale(${scale})`,
+                  WebkitTransform: `translate3d(${x}px, ${y}px, 0) scale(${scale})`,
+                }} />
+            )}
+            <main className="main">
+              <div className='avatar'>
+                <Avatar
+                  sx={{ width: 164, height: 164 }}
+                  src="https://media-exp1.licdn.com/dms/image/C4E03AQHuul0JZHTDyg/profile-displayphoto-shrink_800_800/0/1639949584813?e=1656547200&v=beta&t=jDMrt4BCEyyGKNptCbTRuDfrxyS60Twiep-gh3QXDfE"
+                />
+              </div>
+              
+              <div className='title'>
+                <TransitionArray />
+              </div>
+                
+              <Card />
+              <MyEditor />
+                
+            </main>
+            
+          </div>
+
+        }
+      </TransitionMotion>
+    </div>
   );
 }
 
