@@ -4,6 +4,11 @@
 .container{
   margin-top: 100px;
 }
+
+.container > p {
+  font-family: 'Kalam', cursive;
+  margin-bottom: -10px;
+}
 .react-draggable, .cursor {
   cursor: move;
 }
@@ -29,6 +34,7 @@
 
 .box {
   background: #fff;
+  opacity: 0.9;
   border-radius: 3px;
   width: 68px;
   height: 68px;
