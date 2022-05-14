@@ -5,6 +5,7 @@ import Avatar from '@mui/material/Avatar';
 import './App.css';
 import Card from './components/Card/Card';
 import MyEditor from './components/Editor/Editor';
+import myImage from './assets/myimage.jpeg'
 const leavingSpringConfig = { stiffness: 60, damping: 15 };
 
 function TransitionArray() {
@@ -110,7 +111,7 @@ function App() {
               <div className='avatar'>
                 <Avatar
                   sx={{ width: 164, height: 164 }}
-                  src="https://media-exp1.licdn.com/dms/image/C4E03AQHuul0JZHTDyg/profile-displayphoto-shrink_800_800/0/1639949584813?e=1656547200&v=beta&t=jDMrt4BCEyyGKNptCbTRuDfrxyS60Twiep-gh3QXDfE"
+                  src={myImage}
                 />
               </div>
               
