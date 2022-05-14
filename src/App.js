@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { useTransition, animated, config } from 'react-spring'
-import { TransitionMotion, spring } from 'react-motion';
-import Avatar from '@mui/material/Avatar';
-import './App.css';
-import Card from './components/Card/Card';
-import MyEditor from './components/Editor/Editor';
-import myImage from './assets/myimage.jpeg'
+import React, { useState, useEffect } from "react";
+import { useTransition, animated, config } from "react-spring";
+import { TransitionMotion, spring } from "react-motion";
+import Avatar from "@mui/material/Avatar";
+import "./App.css";
+import Card from "./components/Card/Card";
+import MyEditor from "./components/Editor/Editor";
+import myImage from "./assets/myimage.jpeg";
 const leavingSpringConfig = { stiffness: 60, damping: 15 };
 
 function TransitionArray() {
@@ -13,18 +13,13 @@ function TransitionArray() {
     { id: 1, text: "Hi I'm Kerem Karadeniz " },
   ]);
 
-
-
   useEffect(() => {
     if (items.length === 0) {
       setTimeout(() => {
-        setItems([
-          { id: 1, text: "Hi I'm Kerem Karadeniz " },
-        ]
-        )
-      }, 2000)
+        setItems([{ id: 1, text: "Hi I'm Kerem Karadeniz " }]);
+      }, 2000);
     }
-  }, [items])
+  }, [items]);
 
   const transition = useTransition(items, {
     from: { opacity: 0 },
@@ -33,12 +28,14 @@ function TransitionArray() {
     delay: 200,
     config: config.molasses,
     onRest: () => setItems([]),
-  })
+  });
 
   const fragment = transition((style, item) => {
-    return <animated.div className="animated-div" style={
-      style
-    }><h1>{item.text}</h1></animated.div>;
+    return (
+      <animated.div className="animated-div" style={style}>
+        <h1>{item.text}</h1>
+      </animated.div>
+    );
   });
 
   return (
@@ -48,26 +45,24 @@ function TransitionArray() {
   );
 }
 function App() {
-  const [state, setState] = useState({ mouse: [], now: 't' + 0 });
-
+  const [state, setState] = useState({ mouse: [], now: "t" + 0 });
 
   const handleMouseMove = ({ pageX, pageY }) => {
     // Make sure the state is queued and not batched.
     setState(() => {
       return {
         mouse: [pageX - 25, pageY - 25],
-        now: 't' + Date.now(),
+        now: "t" + Date.now(),
       };
     });
   };
-
 
   const handleTouchMove = (e) => {
     e.preventDefault();
     handleMouseMove(e.touches[0]);
   };
 
-  const willLeave = styleCell => {
+  const willLeave = (styleCell) => {
     return {
       ...styleCell.style,
       opacity: spring(0, leavingSpringConfig),
@@ -75,28 +70,35 @@ function App() {
     };
   };
 
-
-  const { mouse: [mouseX, mouseY], now } = state;
-  const styles = mouseX == null ? [] : [{
-    key: now,
-    style: {
-      opacity: spring(1),
-      scale: spring(0),
-      x: spring(mouseX),
-      y: spring(mouseY),
-    }
-  }];
+  const {
+    mouse: [mouseX, mouseY],
+    now,
+  } = state;
+  const styles =
+    mouseX == null
+      ? []
+      : [
+          {
+            key: now,
+            style: {
+              opacity: spring(1),
+              scale: spring(0),
+              x: spring(mouseX),
+              y: spring(mouseY),
+            },
+          },
+        ];
 
   return (
     <div class="app">
       <TransitionMotion willLeave={willLeave} styles={styles}>
-        
-        {circles =>
+        {(circles) => (
           <div
             onMouseMove={handleMouseMove}
             onTouchMove={handleTouchMove}
-            className="demo7">
-            {circles.map(({ key, style: { opacity, scale, x, y } }) =>
+            className="demo7"
+          >
+            {circles.map(({ key, style: { opacity, scale, x, y } }) => (
               <div
                 key={key}
                 className="demo7-ball"
@@ -105,28 +107,21 @@ function App() {
                   scale: scale,
                   transform: `translate3d(${x}px, ${y}px, 0) scale(${scale})`,
                   WebkitTransform: `translate3d(${x}px, ${y}px, 0) scale(${scale})`,
-                }} />
-            )}
+                }}
+              />
+            ))}
             <main className="main">
-              <div className='avatar'>
-                <Avatar
-                  sx={{ width: 164, height: 164 }}
-                  src={myImage}
-                />
+              <div className="avatar">
+                <Avatar sx={{ width: 164, height: 164 }} src={myImage} />
               </div>
-              
-              <div className='title'>
+              <div className="title">
                 <TransitionArray />
               </div>
-                
               <Card />
               <MyEditor />
-                
             </main>
-            
           </div>
-
-        }
+        )}
       </TransitionMotion>
     </div>
   );
